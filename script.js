@@ -19,8 +19,7 @@ function init() {
 init();
 
 document.onkeypress = function (event) {
-  console.log(event.code);
-  console.log(event.keyCode);
+  document.querySelector('#textarea').innerHTML += event.key;
   document.querySelectorAll('#keyboard .key').forEach(function(element) {
     element.classList.remove('active');
   });   
@@ -34,6 +33,6 @@ document.querySelectorAll('#keyboard .key').forEach(function(element) {
     });   
     let code = this.getAttribute('data');
     this.classList.add("active");
-    console.log(code);
+    document.querySelector('#textarea').innerHTML += String.fromCharCode(code);
   }
 });
