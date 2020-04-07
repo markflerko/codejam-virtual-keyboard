@@ -49,3 +49,11 @@ body {
   background: goldenrod;
   cursor: pointer;
 }
+
+.caps {
+  background: white !important;
+}
+
+.capsActive {
+  background: goldenrod !important;
+}

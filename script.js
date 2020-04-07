@@ -233,7 +233,7 @@ function keysToUpperOrLowerCase() {
 }
 
 function checkKeyExistence(codes) {
-  for (let i=0; i<keyboard.length; i++) {
+  for (let i = 0; i < keyboard.length; i++) {
     if (codes == keyboard[i].code) return true;
   }
   return false;
@@ -317,7 +317,11 @@ function init() {
     } else if (i == 54) {
       out += '<div class="clearfix"></div>';
     }
-    out += '<div class="key" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    if (keyboard[i].code == "CapsLock") {
+      out += '<div class="key caps" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    } else {
+      out += '<div class="key" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    }
   }
   document.querySelector('#keyboard').innerHTML = out;
 }
@@ -338,6 +342,8 @@ document.addEventListener("keydown", (event) => {
     document.querySelector('#textarea').innerHTML += "    ";
   } else if (event.code == "CapsLock") {
     keysToUpperOrLowerCase();
+    document.querySelector('#keyboard .caps').classList.toggle('capsActive');
+    return;
   } else if (event.code == "ShiftLeft" ||
     event.code == "ShiftRight" ||
     event.code == "ControlLeft" ||
