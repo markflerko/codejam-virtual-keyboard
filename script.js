@@ -232,6 +232,13 @@ function keysToUpperOrLowerCase() {
   }
 }
 
+function checkKeyExistence(codes) {
+  for (let i=0; i<keyboard.length; i++) {
+    if (codes == keyboard[i].code) return true;
+  }
+  return false;
+}
+
 let keyboard = [
   { key: "`", code: "Backquote" },
   { key: "1", code: "Digit1" },
@@ -320,17 +327,26 @@ init();
 // keydown
 document.addEventListener("keydown", (event) => {
   event.preventDefault();
+  if (!checkKeyExistence(event.code)) return;
   if (event.code == "Backspace") {
     let str = document.querySelector('#textarea').innerHTML;
     document.querySelector('#textarea').innerHTML = str.slice(0, -1);
   } else if (event.code == "MetaLeft") {
-    event.preventDefault();
     let key = searchInKeyboard("MetaLeft");
     swapLanguage(key.toLowerCase());
   } else if (event.code == "Tab") {
     document.querySelector('#textarea').innerHTML += "    ";
   } else if (event.code == "CapsLock") {
     keysToUpperOrLowerCase();
+  } else if (event.code == "ShiftLeft" ||
+    event.code == "ShiftRight" ||
+    event.code == "ControlLeft" ||
+    event.code == "ControlRight" ||
+    event.code == "AltLeft" ||
+    event.code == "AltRight") {
+    return;
+  } else if (event.code == "Enter") {
+    document.querySelector('#textarea').innerHTML += "\n";
   } else {
     let key = searchInKeyboard(event.code);
     document.querySelector('#textarea').innerHTML += key;
