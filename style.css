@@ -26,10 +26,16 @@ body {
   margin: 3px;
   padding: 3px;
   float: left;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition-property: transform;
+  transition-duration: 0.5s;
+}
+
+#color {
+
 }
 
 .clearfix {              /*чистка потока = перенос на новую строку*/
@@ -39,5 +45,7 @@ body {
 }
 
 .active {
+  transform: scale(0.9);
   background: goldenrod;
+  cursor: pointer;
 }

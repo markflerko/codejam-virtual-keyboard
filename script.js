@@ -109,3 +109,4 @@ document.querySelectorAll('#keyboard .key').forEach(function(element) {
     document.querySelector('#textarea').innerHTML += searchInKeyboard(code);
   }
 });
+
