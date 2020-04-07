@@ -5,6 +5,12 @@ function searchInKeyboard(code) {
 }
 
 function swapLanguage(lang) {
+  if (keyboard[15].key == keyboard[15].key.toUpperCase()) {
+    upperCase = true;
+  } else {
+    upperCase = false;
+  }
+
   if (lang == "lang ru") {
     keyboard = [
       { key: "`", code: "Backquote" },
@@ -71,38 +77,39 @@ function swapLanguage(lang) {
       { key: "▼", code: "ArrowDown" },
       { key: "►", code: "ArrowRight" },
     ];
-      document.querySelector('#keyboard .key[data="' + keyboard[15].code + '"]').innerHTML = "й";
-      document.querySelector('#keyboard .key[data="' + keyboard[16].code + '"]').innerHTML = "ц";
-      document.querySelector('#keyboard .key[data="' + keyboard[17].code + '"]').innerHTML = "у";
-      document.querySelector('#keyboard .key[data="' + keyboard[18].code + '"]').innerHTML = "к";
-      document.querySelector('#keyboard .key[data="' + keyboard[19].code + '"]').innerHTML = "е";
-      document.querySelector('#keyboard .key[data="' + keyboard[20].code + '"]').innerHTML = "н";
-      document.querySelector('#keyboard .key[data="' + keyboard[21].code + '"]').innerHTML = "г";
-      document.querySelector('#keyboard .key[data="' + keyboard[22].code + '"]').innerHTML = "ш";
-      document.querySelector('#keyboard .key[data="' + keyboard[23].code + '"]').innerHTML = "щ";
-      document.querySelector('#keyboard .key[data="' + keyboard[24].code + '"]').innerHTML = "з";
-      document.querySelector('#keyboard .key[data="' + keyboard[25].code + '"]').innerHTML = "х";
-      document.querySelector('#keyboard .key[data="' + keyboard[26].code + '"]').innerHTML = "ъ";
-      document.querySelector('#keyboard .key[data="' + keyboard[29].code + '"]').innerHTML = "ф";
-      document.querySelector('#keyboard .key[data="' + keyboard[30].code + '"]').innerHTML = "ы";
-      document.querySelector('#keyboard .key[data="' + keyboard[31].code + '"]').innerHTML = "в";
-      document.querySelector('#keyboard .key[data="' + keyboard[32].code + '"]').innerHTML = "а";
-      document.querySelector('#keyboard .key[data="' + keyboard[33].code + '"]').innerHTML = "п";
-      document.querySelector('#keyboard .key[data="' + keyboard[34].code + '"]').innerHTML = "р";
-      document.querySelector('#keyboard .key[data="' + keyboard[35].code + '"]').innerHTML = "о";
-      document.querySelector('#keyboard .key[data="' + keyboard[36].code + '"]').innerHTML = "л";
-      document.querySelector('#keyboard .key[data="' + keyboard[37].code + '"]').innerHTML = "д";
-      document.querySelector('#keyboard .key[data="' + keyboard[38].code + '"]').innerHTML = "ж";
-      document.querySelector('#keyboard .key[data="' + keyboard[39].code + '"]').innerHTML = "э";
-      document.querySelector('#keyboard .key[data="' + keyboard[42].code + '"]').innerHTML = "я";
-      document.querySelector('#keyboard .key[data="' + keyboard[43].code + '"]').innerHTML = "ч";
-      document.querySelector('#keyboard .key[data="' + keyboard[44].code + '"]').innerHTML = "с";
-      document.querySelector('#keyboard .key[data="' + keyboard[45].code + '"]').innerHTML = "м";
-      document.querySelector('#keyboard .key[data="' + keyboard[46].code + '"]').innerHTML = "и";
-      document.querySelector('#keyboard .key[data="' + keyboard[47].code + '"]').innerHTML = "т";
-      document.querySelector('#keyboard .key[data="' + keyboard[48].code + '"]').innerHTML = "ь";
-      document.querySelector('#keyboard .key[data="' + keyboard[49].code + '"]').innerHTML = "б";
-      document.querySelector('#keyboard .key[data="' + keyboard[50].code + '"]').innerHTML = "ю";
+    document.querySelector('#keyboard .key[data="' + keyboard[15].code + '"]').innerHTML = "й";
+    document.querySelector('#keyboard .key[data="' + keyboard[16].code + '"]').innerHTML = "ц";
+    document.querySelector('#keyboard .key[data="' + keyboard[17].code + '"]').innerHTML = "у";
+    document.querySelector('#keyboard .key[data="' + keyboard[18].code + '"]').innerHTML = "к";
+    document.querySelector('#keyboard .key[data="' + keyboard[19].code + '"]').innerHTML = "е";
+    document.querySelector('#keyboard .key[data="' + keyboard[20].code + '"]').innerHTML = "н";
+    document.querySelector('#keyboard .key[data="' + keyboard[21].code + '"]').innerHTML = "г";
+    document.querySelector('#keyboard .key[data="' + keyboard[22].code + '"]').innerHTML = "ш";
+    document.querySelector('#keyboard .key[data="' + keyboard[23].code + '"]').innerHTML = "щ";
+    document.querySelector('#keyboard .key[data="' + keyboard[24].code + '"]').innerHTML = "з";
+    document.querySelector('#keyboard .key[data="' + keyboard[25].code + '"]').innerHTML = "х";
+    document.querySelector('#keyboard .key[data="' + keyboard[26].code + '"]').innerHTML = "ъ";
+    document.querySelector('#keyboard .key[data="' + keyboard[29].code + '"]').innerHTML = "ф";
+    document.querySelector('#keyboard .key[data="' + keyboard[30].code + '"]').innerHTML = "ы";
+    document.querySelector('#keyboard .key[data="' + keyboard[31].code + '"]').innerHTML = "в";
+    document.querySelector('#keyboard .key[data="' + keyboard[32].code + '"]').innerHTML = "а";
+    document.querySelector('#keyboard .key[data="' + keyboard[33].code + '"]').innerHTML = "п";
+    document.querySelector('#keyboard .key[data="' + keyboard[34].code + '"]').innerHTML = "р";
+    document.querySelector('#keyboard .key[data="' + keyboard[35].code + '"]').innerHTML = "о";
+    document.querySelector('#keyboard .key[data="' + keyboard[36].code + '"]').innerHTML = "л";
+    document.querySelector('#keyboard .key[data="' + keyboard[37].code + '"]').innerHTML = "д";
+    document.querySelector('#keyboard .key[data="' + keyboard[38].code + '"]').innerHTML = "ж";
+    document.querySelector('#keyboard .key[data="' + keyboard[39].code + '"]').innerHTML = "э";
+    document.querySelector('#keyboard .key[data="' + keyboard[42].code + '"]').innerHTML = "я";
+    document.querySelector('#keyboard .key[data="' + keyboard[43].code + '"]').innerHTML = "ч";
+    document.querySelector('#keyboard .key[data="' + keyboard[44].code + '"]').innerHTML = "с";
+    document.querySelector('#keyboard .key[data="' + keyboard[45].code + '"]').innerHTML = "м";
+    document.querySelector('#keyboard .key[data="' + keyboard[46].code + '"]').innerHTML = "и";
+    document.querySelector('#keyboard .key[data="' + keyboard[47].code + '"]').innerHTML = "т";
+    document.querySelector('#keyboard .key[data="' + keyboard[48].code + '"]').innerHTML = "ь";
+    document.querySelector('#keyboard .key[data="' + keyboard[49].code + '"]').innerHTML = "б";
+    document.querySelector('#keyboard .key[data="' + keyboard[50].code + '"]').innerHTML = "ю";
+
   } else if (lang == "lang en") {
     keyboard = [
       { key: "`", code: "Backquote" },
@@ -202,6 +209,27 @@ function swapLanguage(lang) {
     document.querySelector('#keyboard .key[data="' + keyboard[49].code + '"]').innerHTML = ",";
     document.querySelector('#keyboard .key[data="' + keyboard[50].code + '"]').innerHTML = ".";
   }
+
+  if (upperCase) {
+    for (let i = 0; i < keyboard.length; i++) {
+      keyboard[i].key = keyboard[i].key.toUpperCase();
+      console.log(keyboard[i].key);
+    }
+  }
+}
+
+function keysToUpperOrLowerCase() {
+  if (keyboard[15].key == keyboard[15].key.toUpperCase()) {
+    for (let i = 0; i < keyboard.length; i++) {
+      keyboard[i].key = keyboard[i].key.toLowerCase();
+      console.log(keyboard[i].key);
+    }
+  } else {
+    for (let i = 0; i < keyboard.length; i++) {
+      keyboard[i].key = keyboard[i].key.toUpperCase();
+      console.log(keyboard[i].key);
+    }
+  }
 }
 
 let keyboard = [
@@ -298,7 +326,11 @@ document.addEventListener("keydown", (event) => {
   } else if (event.code == "MetaLeft") {
     event.preventDefault();
     let key = searchInKeyboard("MetaLeft");
-    swapLanguage(key);
+    swapLanguage(key.toLowerCase());
+  } else if (event.code == "Tab") {
+    document.querySelector('#textarea').innerHTML += "    ";
+  } else if (event.code == "CapsLock") {
+    keysToUpperOrLowerCase();
   } else {
     let key = searchInKeyboard(event.code);
     document.querySelector('#textarea').innerHTML += key;
