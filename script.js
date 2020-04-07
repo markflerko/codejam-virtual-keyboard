@@ -1,3 +1,6 @@
+document.write('<div class="gridKeyboard"><textarea name="textarea" id="textarea" cols="30" rows="10"></textarea><br><div id="keyboard"></div></div>');
+
+
 function searchInKeyboard(code) {
   for (let i = 0; i < keyboard.length; i++) {
     if (code == keyboard[i].code) return keyboard[i].key;
