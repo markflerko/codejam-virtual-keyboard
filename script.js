@@ -308,9 +308,9 @@ let keyboard = [
 function init() {
   let out = '';
   for (let i = 0; i < keyboard.length; i++) {
-    if (i == 13) {
+    if (i == 14) {
       out += '<div class="clearfix"></div>';
-    } else if (i == 27) {
+    } else if (i == 28) {
       out += '<div class="clearfix"></div>';
     } else if (i == 41) {
       out += '<div class="clearfix"></div>';
@@ -319,6 +319,18 @@ function init() {
     }
     if (keyboard[i].code == "CapsLock") {
       out += '<div class="key caps" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    } else if (keyboard[i].code == "Backspace") {
+      out += '<div class="key Backspace" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    } else if (keyboard[i].code == "Enter") {
+      out += '<div class="key Enter" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    } else if (keyboard[i].code == "ShiftRight") {
+      out += '<div class="key ShiftRight" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    } else if (keyboard[i].code == "ShiftLeft") {
+      out += '<div class="key ShiftLeft" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    } else if (keyboard[i].code == "Space") {
+      out += '<div class="key Space" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    } else if (keyboard[i].code == "Backquote") {
+      out += '<div class="key Backquote" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
     } else {
       out += '<div class="key" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
     }

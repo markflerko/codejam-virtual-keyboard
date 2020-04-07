@@ -20,8 +20,8 @@ body {
 }
 
 .key {
-  width: 50px;
-  height: 50px;
+  width: 5vw;
+  height: 5vh;
   border: 1px solid black;
   margin: 3px;
   padding: 3px;
@@ -32,10 +32,6 @@ body {
   cursor: pointer;
   transition-property: transform;
   transition-duration: 0.5s;
-}
-
-#color {
-
 }
 
 .clearfix {              /*чистка потока = перенос на новую строку*/
@@ -51,9 +47,38 @@ body {
 }
 
 .caps {
+  width: 7vw;
   background: white !important;
+  transition-property: transform;
+  transition-duration: 0.5s;
 }
 
 .capsActive {
   background: goldenrod !important;
+  transform: scale(0.9);
+  cursor: pointer;
+}
+
+.Enter {
+  width: 9.3vw;
+}
+
+.ShiftLeft {
+  width: 11.3vw;
+}
+
+.ShiftRight {
+  width: 5vw;
+}
+
+.Space {
+  width: 36.8vw;
+}
+
+.Backspace {
+  width: 8vw;
+}
+
+.Backquote {
+  width: 2vw;
 }
