@@ -1,4 +1,4 @@
-document.write('<div class="gridKeyboard"><textarea name="textarea" id="textarea" cols="30" rows="10"></textarea><br><div id="keyboard"></div></div>');
+document.write('<div class="gridKeyboard"><textarea name="textarea" id="textarea" cols="30" rows="10"></textarea><br><div id="keyboard"></div><div><p>creating in OS Windows.</p><p>language switching: windows key.</p></div></div>');
 
 
 function searchInKeyboard(code) {
