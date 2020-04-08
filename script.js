@@ -388,11 +388,27 @@ document.querySelectorAll('#keyboard .key').forEach((element) => {
     this.classList.add("active");
     let key = searchInKeyboard(code);
 
-
-
-    if (key == "Backspace") {
+    if (code == "Backspace") {
       let str = document.querySelector('#textarea').innerHTML;
       document.querySelector('#textarea').innerHTML = str.slice(0, -1);
+    } else if (code == "MetaLeft") {
+      let key = searchInKeyboard("MetaLeft");
+      swapLanguage(key.toLowerCase());
+    } else if (code == "Tab") {
+      document.querySelector('#textarea').innerHTML += "    ";
+    } else if (code == "CapsLock") {
+      keysToUpperOrLowerCase();
+      document.querySelector('#keyboard .caps').classList.toggle('capsActive');
+      return;
+    } else if (code == "ShiftLeft" ||
+      code == "ShiftRight" ||
+      code == "ControlLeft" ||
+      code == "ControlRight" ||
+      code == "AltLeft" ||
+      code == "AltRight") {
+      return;
+    } else if (code == "Enter") {
+      document.querySelector('#textarea').innerHTML += "\n";
     } else {
       document.querySelector('#textarea').innerHTML += key;
     }
