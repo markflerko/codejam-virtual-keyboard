@@ -8,6 +8,7 @@ function searchInKeyboard(code) {
 }
 
 function swapLanguage(lang) {
+  localStorage.setItem('lang', lang);
   if (keyboard[15].key == keyboard[15].key.toUpperCase()) {
     upperCase = true;
   } else {
@@ -240,6 +241,7 @@ function checkKeyExistence(codes) {
     if (codes == keyboard[i].code) return true;
   }
   return false;
+  
 }
 
 let keyboard = [
@@ -341,7 +343,9 @@ function init() {
   document.querySelector('#keyboard').innerHTML = out;
 }
 
+// lang and localstorage
 init();
+swapLanguage(localStorage.getItem('lang'));
 
 // keydown
 document.addEventListener("keydown", (event) => {
