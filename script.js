@@ -380,6 +380,7 @@ document.addEventListener("keydown", (event) => {
     element.classList.remove('active');
   });
   document.querySelector('#keyboard .key[data="' + event.code + '"]').classList.add('active');
+  setTimeout(() =>   document.querySelector('#keyboard .key[data="' + event.code + '"]').classList.remove('active'), 300);
 });
 
 // onclick
@@ -390,6 +391,7 @@ document.querySelectorAll('#keyboard .key').forEach((element) => {
     });
     let code = this.getAttribute('data');
     this.classList.add("active");
+    setTimeout(() => this.classList.remove("active"), 300);
     let key = searchInKeyboard(code);
 
     if (code == "Backspace") {
