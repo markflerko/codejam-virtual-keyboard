@@ -1,5 +1,4 @@
-document.write('<div class="gridKeyboard"><textarea name="textarea" id="textarea" cols="30" rows="10"></textarea><br><div id="keyboard"></div><div><p>creating in OS Windows.</p><p>language switching: windows key.</p></div></div>');
-
+document.write('<div class="gridKeyboard"><textarea name="textarea" id="textarea" cols="30" rows="10" readonly></textarea><br><div id="keyboard"></div><div><p>creating in OS Windows.</p><p>language switching: ControlLeft+AltLeft.</p></div></div>');
 
 function searchInKeyboard(code) {
   for (let i = 0; i < keyboard.length; i++) {
@@ -8,6 +7,7 @@ function searchInKeyboard(code) {
 }
 
 function swapLanguage(lang) {
+  localStorage.setItem('lang', lang);
   if (keyboard[15].key == keyboard[15].key.toUpperCase()) {
     upperCase = true;
   } else {
@@ -240,6 +240,7 @@ function checkKeyExistence(codes) {
     if (codes == keyboard[i].code) return true;
   }
   return false;
+
 }
 
 let keyboard = [
@@ -300,7 +301,7 @@ let keyboard = [
   { key: "Control", code: "ControlLeft" },
   { key: "lang ru", code: "MetaLeft" },
   { key: "Alt", code: "AltLeft" },
-  { key: " ", code: "Space" },
+  { key: "Space", code: "Space" },
   { key: "Alt", code: "AltRight" },
   { key: "Control", code: "ControlRight" },
   { key: "◄", code: "ArrowLeft" },
@@ -334,6 +335,10 @@ function init() {
       out += '<div class="key Space" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
     } else if (keyboard[i].code == "Backquote") {
       out += '<div class="key Backquote" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    } else if (keyboard[i].code == "MetaLeft") {
+      out += '<div class="key meta" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    } else if (keyboard[i].code == "ArrowRight") {
+      out += '<div class="key ar" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
     } else {
       out += '<div class="key" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
     }
@@ -341,7 +346,9 @@ function init() {
   document.querySelector('#keyboard').innerHTML = out;
 }
 
+// lang and localstorage
 init();
+swapLanguage(localStorage.getItem('lang'));
 
 // keydown
 document.addEventListener("keydown", (event) => {
@@ -350,9 +357,16 @@ document.addEventListener("keydown", (event) => {
   if (event.code == "Backspace") {
     let str = document.querySelector('#textarea').innerHTML;
     document.querySelector('#textarea').innerHTML = str.slice(0, -1);
-  } else if (event.code == "MetaLeft") {
-    let key = searchInKeyboard("MetaLeft");
-    swapLanguage(key.toLowerCase());
+  } else if (event.code == "ControlLeft") {
+    document.addEventListener("keydown", (event => {
+      event.preventDefault();
+      if (!checkKeyExistence(event.code)) return;
+      if (event.code == "AltLeft") {
+        document.querySelector('#keyboard .key[data="' + event.code + '"]').classList.add('active');
+        let key = searchInKeyboard("MetaLeft");
+        swapLanguage(key.toLowerCase());
+      }
+    }))
   } else if (event.code == "Tab") {
     document.querySelector('#textarea').innerHTML += "    ";
   } else if (event.code == "CapsLock") {
@@ -376,6 +390,9 @@ document.addEventListener("keydown", (event) => {
     element.classList.remove('active');
   });
   document.querySelector('#keyboard .key[data="' + event.code + '"]').classList.add('active');
+  document.addEventListener("keyup", (event) => {
+    setTimeout(() => document.querySelector('#keyboard .key[data="' + event.code + '"]').classList.remove('active'), 300);
+  })
 });
 
 // onclick
@@ -386,6 +403,7 @@ document.querySelectorAll('#keyboard .key').forEach((element) => {
     });
     let code = this.getAttribute('data');
     this.classList.add("active");
+    setTimeout(() => this.classList.remove("active"), 300);
     let key = searchInKeyboard(code);
 
     if (code == "Backspace") {
