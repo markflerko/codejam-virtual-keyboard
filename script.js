@@ -1,4 +1,4 @@
-document.write('<div class="gridKeyboard"><textarea name="textarea" id="textarea" cols="30" rows="10" readonly></textarea><br><div id="keyboard"></div><div><p>creating in OS Windows.</p><p>language switching: windows key.</p></div></div>');
+document.write('<div class="gridKeyboard"><textarea name="textarea" id="textarea" cols="30" rows="10" readonly></textarea><br><div id="keyboard"></div><div><p>creating in OS Windows.</p><p>language switching: ControlLeft+AltLeft.</p></div></div>');
 
 function searchInKeyboard(code) {
   for (let i = 0; i < keyboard.length; i++) {
@@ -240,7 +240,7 @@ function checkKeyExistence(codes) {
     if (codes == keyboard[i].code) return true;
   }
   return false;
-  
+
 }
 
 let keyboard = [
@@ -353,9 +353,15 @@ document.addEventListener("keydown", (event) => {
   if (event.code == "Backspace") {
     let str = document.querySelector('#textarea').innerHTML;
     document.querySelector('#textarea').innerHTML = str.slice(0, -1);
-  } else if (event.code == "MetaLeft") {
-    let key = searchInKeyboard("MetaLeft");
-    swapLanguage(key.toLowerCase());
+  } else if (event.code == "ControlLeft") {
+    document.addEventListener("keydown", (event => {
+      event.preventDefault();
+      if (!checkKeyExistence(event.code)) return;
+      if (event.code == "AltLeft") {
+        let key = searchInKeyboard("MetaLeft");
+        swapLanguage(key.toLowerCase());
+      }
+    }))
   } else if (event.code == "Tab") {
     document.querySelector('#textarea').innerHTML += "    ";
   } else if (event.code == "CapsLock") {
@@ -379,7 +385,9 @@ document.addEventListener("keydown", (event) => {
     element.classList.remove('active');
   });
   document.querySelector('#keyboard .key[data="' + event.code + '"]').classList.add('active');
-  setTimeout(() =>   document.querySelector('#keyboard .key[data="' + event.code + '"]').classList.remove('active'), 300);
+  document.addEventListener("keyup", (event) => {
+    setTimeout(() => document.querySelector('#keyboard .key[data="' + event.code + '"]').classList.remove('active'), 300);
+  })
 });
 
 // onclick
