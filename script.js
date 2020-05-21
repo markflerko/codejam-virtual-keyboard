@@ -301,7 +301,7 @@ let keyboard = [
   { key: "Control", code: "ControlLeft" },
   { key: "lang ru", code: "MetaLeft" },
   { key: "Alt", code: "AltLeft" },
-  { key: " ", code: "Space" },
+  { key: "Space", code: "Space" },
   { key: "Alt", code: "AltRight" },
   { key: "Control", code: "ControlRight" },
   { key: "◄", code: "ArrowLeft" },
@@ -335,6 +335,10 @@ function init() {
       out += '<div class="key Space" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
     } else if (keyboard[i].code == "Backquote") {
       out += '<div class="key Backquote" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    } else if (keyboard[i].code == "MetaLeft") {
+      out += '<div class="key meta" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
+    } else if (keyboard[i].code == "ArrowRight") {
+      out += '<div class="key ar" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
     } else {
       out += '<div class="key" data="' + keyboard[i].code + '" >' + keyboard[i].key + '</div>';
     }
@@ -358,6 +362,7 @@ document.addEventListener("keydown", (event) => {
       event.preventDefault();
       if (!checkKeyExistence(event.code)) return;
       if (event.code == "AltLeft") {
+        document.querySelector('#keyboard .key[data="' + event.code + '"]').classList.add('active');
         let key = searchInKeyboard("MetaLeft");
         swapLanguage(key.toLowerCase());
       }

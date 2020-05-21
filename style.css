@@ -2,6 +2,10 @@ body {
   display: flex;
 }
 
+#textarea {
+  resize: none;
+}
+
 .gridKeyboard {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(670px, 1fr));
@@ -20,8 +24,9 @@ body {
 }
 
 .key {
-  width: 5vw;
-  height: 5vh;
+  width: 5%;
+  height: 5%;
+  font-size: 13px;
   border: 1px solid black;
   margin: 3px;
   padding: 3px;
@@ -47,7 +52,7 @@ body {
 }
 
 .caps {
-  width: 7vw;
+  width: 7.8%;
   background: white !important;
   transition-property: transform;
   transition-duration: 0.5s;
@@ -59,26 +64,34 @@ body {
   cursor: pointer;
 }
 
+.meta {
+  width: 7%;
+}
+
 .Enter {
-  width: 9.3vw;
+  width: 9.3%;
 }
 
 .ShiftLeft {
-  width: 11.3vw;
+  width: 11.3%;
 }
 
 .ShiftRight {
-  width: 5vw;
+  width: 5.8%;
 }
 
 .Space {
-  width: 36.8vw;
+  width: 37.9%;
 }
 
 .Backspace {
-  width: 8vw;
+  width: 8%;
 }
 
 .Backquote {
-  width: 2vw;
+  width: 2%;
+}
+
+.ar {
+  width: 5.8%
 }
